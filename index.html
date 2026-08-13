@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sangsile Chips — Keripik Pepaya Renyah Tanggamus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF7EA;
+    --card:#FFFFFF;
+    --card-2:#FCEED6;
+    --cream:#3B2410;
+    --muted: rgba(59,36,16,0.64);
+    --muted-2: rgba(59,36,16,0.44);
+    --gold:#F0901F;
+    --gold-deep:#B85A0E;
+    --line: rgba(59,36,16,0.12);
+    --line-strong: rgba(59,36,16,0.22);
+    --instagram:#E1306C;
+    --tiktok:#0A0A0A;
+    --wa:#25D366;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    display:flex;
+    justify-content:center;
+  }
+  .app{max-width:480px;width:100%;position:relative;padding-bottom:70px;}
+  .px{padding-left:24px;padding-right:24px;}
+  a{color:inherit;}
+  button{font-family:inherit;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;
+    text-transform:uppercase;color:var(--gold-deep);text-align:center;margin-bottom:14px;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;margin:0;color:var(--cream);}
+  svg{display:block;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border:none;border-radius:10px;font-family:'Inter',sans-serif;font-weight:600;
+    font-size:14px;cursor:pointer;text-decoration:none;transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn:active{transform:scale(0.97);}
+
+  /* BRAND STRIP */
+  .brand-strip{display:flex;align-items:center;gap:12px;padding:22px 24px 0;}
+  .k-badge{
+    width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:600;color:var(--gold-deep);font-size:18px;flex-shrink:0;
+  }
+  .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--cream);}
+  .brand-sub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted-2);}
+
+  /* HERO */
+  .hero{
+    position:relative;margin-top:18px;padding:64px 24px 40px;overflow:hidden;
+    text-align:center;
+  }
+  .hero-bg{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;
+  }
+  .hero-overlay{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(240,144,31,0.10), transparent 55%),
+      linear-gradient(180deg, rgba(253,236,209,0.94) 0%, rgba(255,247,234,0.97) 75%);
+  }
+  .hero-inner{position:relative;z-index:1;}
+  .hero-eyebrow{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold-deep);
+    text-transform:uppercase;margin-bottom:22px;
+  }
+  h1.hero-title{font-weight:500;font-size:38px;line-height:1.18;color:var(--cream);margin-bottom:20px;}
+  h1.hero-title em{font-style:italic;font-weight:500;color:var(--gold-deep);}
+  .hero-sub{font-size:15px;color:var(--muted);max-width:340px;margin:0 auto 32px;}
+  .btn-gold{
+    background:var(--gold);color:#241608;padding:15px 28px;font-size:15px;width:100%;max-width:280px;
+  }
+  .scroll-hint{margin-top:44px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--muted-2);}
+  .scroll-hint svg{margin:8px auto 0;}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stat{padding:26px 12px;text-align:center;border-right:1px solid var(--line);}
+  .stat:nth-child(2n){border-right:none;}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);}
+  .stat-num{font-family:'Fraunces',serif;font-weight:500;font-size:24px;color:var(--gold-deep);}
+  .stat-label{font-size:12px;color:var(--muted);margin-top:4px;}
+
+  /* CATALOG HEADER */
+  .catalog-head{padding:56px 24px 28px;text-align:center;}
+  h2.section-title{font-weight:500;font-size:30px;margin-bottom:14px;}
+  .catalog-desc{font-size:14px;color:var(--muted);max-width:340px;margin:0 auto;}
+
+  /* FILTERS */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:24px 24px 40px;}
+  .chip{
+    font-family:'Inter',sans-serif;font-size:13px;padding:10px 18px;border-radius:999px;
+    border:1px solid var(--line-strong);color:var(--muted);white-space:nowrap;
+    background:transparent;cursor:pointer;transition:all .15s ease;
+  }
+  .chip.active{background:var(--gold);border-color:var(--gold);color:#241608;font-weight:600;}
+  .chip:not(.active):hover{border-color:var(--gold);color:var(--cream);}
+
+  /* PRODUCT CARD */
+  .products{display:flex;flex-direction:column;gap:28px;padding:0 24px 20px;}
+  .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);transition:opacity .25s ease, max-height .25s ease;}
+  .card.hidden{display:none;}
+  .card-media{position:relative;height:220px;}
+  .card-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-media-shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);pointer-events:none;}
+  .badge{
+    position:absolute;top:14px;left:14px;background:var(--gold);color:#241608;
+    font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;z-index:2;
+  }
+  .loc-tag{
+    position:absolute;bottom:14px;left:14px;z-index:2;display:flex;align-items:center;gap:5px;
+    font-size:12px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.6);
+  }
+  .card-body{padding:22px;}
+  .card-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:8px;}
+  .card-title{font-size:21px;font-weight:500;margin-bottom:10px;}
+  .card-desc{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+  .spec-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:16px;}
+  .spec{text-align:center;}
+  .spec-label{font-size:10.5px;color:var(--muted-2);margin-bottom:4px;}
+  .spec-val{font-size:13px;font-weight:600;color:var(--cream);}
+  .rating-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .stars{color:var(--gold-deep);font-size:13px;letter-spacing:1px;}
+  .stars b{color:var(--cream);margin-left:6px;font-weight:600;}
+  .sold{font-size:12.5px;color:var(--muted);}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;}
+  .price{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--gold-deep);}
+  .price-unit{font-size:12px;color:var(--muted-2);}
+
+  /* VARIANT SELECTOR */
+  .variant-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+  .variant-btn{
+    font-family:'Inter',sans-serif;text-align:center;padding:10px 8px;border-radius:10px;
+    border:1px solid var(--line-strong);background:var(--card-2);color:var(--cream);
+    font-size:13px;font-weight:600;cursor:pointer;transition:all .15s ease;
+  }
+  .variant-btn span{display:block;font-size:12px;font-weight:600;color:var(--gold-deep);margin-top:2px;}
+  .variant-btn.active{background:var(--gold);border-color:var(--gold);color:#241608;}
+  .variant-btn.active span{color:#241608;}
+
+  /* QTY + ADD TO CART */
+  .qty-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .qty-control{display:flex;align-items:center;border:1px solid var(--line-strong);border-radius:10px;overflow:hidden;}
+  .qty-btn{width:38px;height:38px;background:var(--card-2);color:var(--cream);border:none;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .qty-btn:active{background:var(--gold);color:#241608;}
+  .qty-val{width:34px;text-align:center;font-weight:600;font-size:14px;}
+  .add-cart-btn{flex:1;background:var(--card-2);border:1px solid var(--line-strong);color:var(--cream);padding:0 14px;height:38px;font-size:13px;}
+  .add-cart-btn.added{background:var(--gold);color:#241608;border-color:var(--gold);}
+
+  .buy-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .buy-btn{padding:13px 10px;font-size:13.5px;}
+  .buy-instagram{background:var(--instagram);color:#fff;}
+  .buy-tiktok{background:var(--tiktok);color:#fff;border:1px solid var(--line-strong);}
+
+  /* FLOATING CART BAR */
+  .cart-bar{
+    position:fixed;bottom:0;left:50%;transform:translateX(-50%) translateY(100%);
+    width:100%;max-width:480px;background:var(--gold);color:#241608;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:14px 20px;z-index:50;transition:transform .25s ease;box-shadow:0 -6px 20px rgba(0,0,0,0.35);
+  }
+  .cart-bar.show{transform:translateX(-50%) translateY(0);}
+  .cart-info{font-size:13px;line-height:1.3;}
+  .cart-info b{font-family:'Fraunces',serif;font-size:16px;display:block;}
+  .cart-wa-btn{background:var(--wa);color:#fff;padding:12px 18px;font-size:13.5px;white-space:nowrap;}
+
+  /* CTA STORE SECTION */
+  .store-cta{padding:56px 24px;text-align:center;}
+  .store-desc{font-size:14px;color:var(--muted);max-width:320px;margin:0 auto 28px;}
+  .store-buttons{display:flex;flex-direction:column;gap:12px;}
+  .store-btn{padding:16px;font-size:15px;width:100%;}
+  .buy-wa{background:var(--wa);color:#fff;}
+
+  /* ABOUT */
+  .about{padding:56px 24px;}
+  h2.about-title{font-weight:500;font-size:30px;line-height:1.2;text-align:center;margin-bottom:22px;}
+  h2.about-title em{font-style:italic;color:var(--gold-deep);font-weight:500;}
+  .about p{font-size:14px;color:var(--muted);margin:0 0 16px;}
+  .ig-row{display:flex;align-items:center;gap:12px;margin:24px 0 28px;padding:14px 16px;border:1px solid var(--line-strong);border-radius:12px;}
+  .ig-icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-deep);}
+  .ig-handle{font-weight:600;font-size:14px;color:var(--cream);}
+  .ig-sub{font-size:12px;color:var(--muted);}
+  .about-media{position:relative;height:200px;border-radius:14px;overflow:hidden;}
+  .about-media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .about-media-shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(24,17,13,0.15) 0%, rgba(24,17,13,0.65) 100%);pointer-events:none;}
+  .exp-badge{
+    position:absolute;bottom:14px;left:14px;background:rgba(24,17,13,0.85);
+    padding:10px 16px;border-radius:10px;z-index:2;
+  }
+  .exp-num{font-family:'Fraunces',serif;color:var(--gold);font-size:20px;font-weight:600;}
+  .exp-label{font-size:11px;color:var(--muted);}
+
+  /* FAQ (interactive accordion) */
+  .faq{padding:56px 24px;}
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;background:none;border:none;color:var(--cream);text-align:left;padding:18px 4px;
+    display:flex;justify-content:space-between;align-items:center;font-size:14.5px;font-weight:600;cursor:pointer;}
+  .faq-q svg{transition:transform .2s ease;flex-shrink:0;color:var(--gold-deep);}
+  .faq-item.open .faq-q svg{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .faq-item.open .faq-a{max-height:200px;}
+  .faq-a p{font-size:13.5px;color:var(--muted);padding:0 4px 18px;margin:0;}
+
+  /* CONTACT */
+  .contact{padding:56px 24px;text-align:center;}
+  h2.contact-title{font-weight:500;font-size:28px;margin-bottom:26px;}
+  .contact-box{
+    display:flex;align-items:center;gap:14px;text-align:left;
+    border:1px solid var(--line-strong);border-radius:12px;padding:16px 18px;margin-bottom:14px;
+  }
+  .contact-box.link{cursor:pointer;text-decoration:none;}
+  .contact-icon{width:38px;height:38px;border-radius:10px;background:var(--card-2);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);flex-shrink:0;}
+  .contact-label{font-size:11px;color:var(--muted-2);margin-bottom:2px;}
+  .contact-val{font-size:14.5px;font-weight:600;color:var(--cream);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:32px 24px 44px;text-align:center;}
+  .foot-brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+  .foot-copy{font-size:12px;color:var(--muted-2);margin-bottom:14px;}
+  .foot-links{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted);}
+  .foot-links span{margin:0 10px;}
+
+  /* =========================================================
+     TAMBAHAN BACKGROUND HALAMAN
+     Tidak mengubah struktur HTML/JavaScript yang sudah ada.
+     background.jpeg akan muncul di area kiri dan kanan
+     konten utama pada layar desktop.
+     ========================================================= */
+
+  body{
+    background:
+      linear-gradient(
+        rgba(255,247,234,0.18),
+        rgba(255,247,234,0.18)
+      ),
+      url("background.jpeg") center center / cover fixed no-repeat;
+  }
+
+  .app{
+    background:rgba(255,247,234,0.93);
+    min-height:100vh;
+    box-shadow:0 0 50px rgba(59,36,16,0.18);
+  }
+
+  /* Foto produk ditampilkan utuh, tidak dipotong */
+  .card-media{
+    position:relative;
+    height:280px;
+    background:var(--card-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  .card-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    display:block;
+    padding:12px;
+  }
+
+  .card-media-shade{
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,0.00) 55%,
+        rgba(0,0,0,0.18) 100%
+      );
+    pointer-events:none;
+  }
+
+  @media (max-width:520px){
+    body{
+      background-attachment:scroll;
+      background-size:auto 100%;
+    }
+
+    .app{
+      box-shadow:none;
+    }
+
+    .card-media{
+      height:260px;
+    }
+  }
+
+  @media (min-width:700px){
+    body{
+      background-attachment:fixed;
+    }
+
+    .card-media{
+      height:300px;
+    }
+  }
+
+</style>
+<style id="consumer-redesign">
+:root{--bg:#fff9ef;--card:#fff;--card-2:#fff1d7;--cream:#2f1b0b;--muted:rgba(47,27,11,.68);--muted-2:rgba(47,27,11,.45);--gold:#ff9f1c;--gold-deep:#d96b00;--line:rgba(47,27,11,.10);--line-strong:rgba(47,27,11,.18)}
+html{scroll-behavior:smooth}body{background:radial-gradient(circle at 10% 5%,rgba(255,159,28,.14),transparent 28%),radial-gradient(circle at 90% 20%,rgba(255,205,86,.12),transparent 24%),url("background.jpeg") center/cover fixed no-repeat}.app{background:rgba(255,250,242,.96);box-shadow:0 0 70px rgba(60,35,10,.20)}
+.brand-strip{position:sticky;top:0;z-index:40;background:rgba(255,250,242,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(47,27,11,.08);padding:14px 20px}.k-badge{background:linear-gradient(135deg,#ffb52e,#f07800);color:#fff;border:none;box-shadow:0 5px 16px rgba(240,120,0,.25)}.brand-name{letter-spacing:.3px}.brand-sub{font-size:9px}
+.hero{margin-top:0;padding:78px 22px 52px;min-height:610px;display:flex;align-items:center;justify-content:center}.hero-bg{filter:saturate(1.08)}.hero-overlay{background:radial-gradient(circle at 50% 18%,rgba(255,178,54,.18),transparent 42%),linear-gradient(180deg,rgba(255,244,222,.76) 0%,rgba(255,249,239,.97) 78%)}.hero-eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid rgba(217,107,0,.18);box-shadow:0 8px 22px rgba(72,38,9,.08);margin-bottom:20px}h1.hero-title{font-size:44px;letter-spacing:-.8px;text-shadow:0 2px 0 #fff}.hero-title em{background:linear-gradient(90deg,#e97800,#ffab22);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-sub{font-size:15.5px;line-height:1.75}.btn-gold{max-width:310px;border-radius:999px;padding:16px 26px;background:linear-gradient(135deg,#ffb12b,#f07a00);color:#fff;box-shadow:0 12px 28px rgba(230,110,0,.28)}.btn-gold:hover{transform:translateY(-2px)}
+.stats{margin:0 16px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 28px rgba(57,32,8,.07)}.stat{padding:22px 10px}.stat-num{font-size:25px;background:linear-gradient(90deg,#df6900,#ffad27);-webkit-background-clip:text;background-clip:text;color:transparent}
+.catalog-head{padding:62px 24px 24px}.eyebrow{font-weight:700}h2.section-title{font-size:33px;letter-spacing:-.4px}.catalog-desc{line-height:1.7}.filters{padding:10px 20px 34px;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.chip{background:#fff;box-shadow:0 4px 12px rgba(47,27,11,.05);padding:11px 18px}.chip.active{background:linear-gradient(135deg,#ffb12b,#f07a00);box-shadow:0 7px 18px rgba(230,110,0,.20)}
+.products{gap:24px;padding:0 18px 24px}.card{border:1px solid rgba(47,27,11,.08);border-radius:24px;box-shadow:0 12px 32px rgba(57,32,8,.08);transform:translateZ(0)}.card:hover{box-shadow:0 18px 42px rgba(57,32,8,.13)}.card-media{height:300px;background:radial-gradient(circle at 50% 45%,#fff8e9,#ffe9bd)}.card-media img{padding:10px;transition:transform .35s ease}.card:hover .card-media img{transform:scale(1.035)}.card-media-shade{background:linear-gradient(180deg,transparent 55%,rgba(55,26,4,.22))}.badge{top:16px;left:16px;background:linear-gradient(135deg,#ffb52e,#f27a00);color:#fff;box-shadow:0 7px 16px rgba(100,45,0,.18)}.loc-tag{left:16px;bottom:16px;font-weight:600}.card-body{padding:24px 22px 22px}.card-eyebrow{font-weight:700}.card-title{font-size:24px;letter-spacing:-.25px}.card-desc{line-height:1.7}.spec-row{background:#fffaf2;border-radius:14px;padding:13px 6px;border:1px solid rgba(47,27,11,.07)}.spec-label{font-size:10px}.spec-val{font-size:12.5px}.rating-row{margin-top:16px}.stars{font-size:14px}.sold{background:#f3fff4;color:#318446;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:600}.price{font-size:28px;color:#d96300}.variant-btn{background:#fffaf2;border-radius:12px}.variant-btn.active{background:linear-gradient(135deg,#ffb12b,#f07a00);box-shadow:0 6px 16px rgba(230,110,0,.18)}.qty-control{background:#fff;border-radius:12px}.qty-btn{background:#fff6e7}.add-cart-btn{border-radius:12px;background:#fff1d7}.buy-row{gap:12px}.buy-btn{border-radius:12px;font-weight:700}.buy-wa{box-shadow:0 7px 18px rgba(37,211,102,.18)}.buy-instagram{box-shadow:0 7px 18px rgba(225,48,108,.15)}
+.cart-bar{border-radius:18px 18px 0 0;padding:13px 16px;box-shadow:0 -10px 28px rgba(48,27,7,.18)}.cart-wa-btn{border-radius:999px;font-weight:700}.store-cta{margin:18px;padding:44px 20px;border-radius:26px;background:linear-gradient(145deg,#fff0d2,#fff9ef);border:1px solid rgba(217,107,0,.12)}.store-desc{line-height:1.7}.store-btn{border-radius:14px;font-weight:700}.about,.faq,.contact{padding-left:22px;padding-right:22px}.about-media{height:235px;border-radius:20px;box-shadow:0 12px 28px rgba(57,32,8,.10)}.exp-badge{border-radius:14px;background:rgba(39,22,8,.88)}.faq-item{border-color:rgba(47,27,11,.10)}.faq-q{padding:20px 6px;font-size:15px}.contact-box{background:#fff;border-color:rgba(47,27,11,.09);border-radius:16px;box-shadow:0 7px 20px rgba(57,32,8,.05)}footer{background:#fffaf2}
+@keyframes riseIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}.hero-inner>*{animation:riseIn .55s ease both}.hero-inner>*:nth-child(2){animation-delay:.08s}.hero-inner>*:nth-child(3){animation-delay:.16s}.hero-inner>*:nth-child(4){animation-delay:.24s}.hero-inner>*:nth-child(5){animation-delay:.32s}
+@media(max-width:520px){.brand-strip{padding:12px 18px}.hero{min-height:590px;padding-top:62px}h1.hero-title{font-size:40px}.stats{margin:0 12px}.products{padding-left:14px;padding-right:14px}.card-media{height:270px}}
+</style>
+
+<style id="responsive-interactions">
+/* ===== RESPONSIVE + INTERACTIVE EXPERIENCE ===== */
+*{scrollbar-width:thin;scrollbar-color:#f0a12a transparent;}
+::selection{background:#ffb12b;color:#2f1b0b;}
+body{overflow-x:hidden;}
+.app{position:relative;overflow:hidden;}
+
+/* Desktop navigation/header */
+.brand-strip{transition:box-shadow .25s ease,background .25s ease;}
+.brand-strip.scrolled{box-shadow:0 8px 24px rgba(47,27,11,.10);}
+
+/* Desktop product grid */
+@media (min-width: 760px){
+  body{align-items:flex-start;}
+  .app{max-width:1180px;}
+  .brand-strip{padding:16px 42px;}
+  .hero{min-height:650px;padding:86px 70px;}
+  .hero-inner{max-width:760px;margin:auto;}
+  h1.hero-title{font-size:58px;}
+  .hero-sub{max-width:650px;font-size:17px;}
+  .stats{margin:0 42px;grid-template-columns:repeat(4,1fr);}
+  .stat{border-right:1px solid var(--line)!important;border-bottom:none!important;}
+  .stat:last-child{border-right:none!important;}
+  .catalog-head{padding:78px 42px 28px;}
+  .catalog-desc{max-width:650px;}
+  .filters{justify-content:center;padding-bottom:42px;}
+  .products{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+    padding:0 42px 36px;
+    align-items:start;
+  }
+  .card{height:100%;}
+  .card-media{height:260px;}
+  .card-body{padding:22px 20px 20px;}
+  .card-title{font-size:22px;}
+  .spec-row{grid-template-columns:repeat(3,1fr);}
+  .store-cta{
+    margin:42px;
+    padding:56px 50px;
+  }
+  .store-buttons{
+    flex-direction:row;
+    justify-content:center;
+  }
+  .store-btn{width:auto;min-width:210px;}
+  .about,.faq,.contact{max-width:850px;margin:auto;padding-left:42px;padding-right:42px;}
+  .about-media{height:300px;}
+  footer{padding-left:42px;padding-right:42px;}
+  .cart-bar{
+    max-width:700px;
+    border-radius:18px 18px 0 0;
+    left:50%;
+  }
+}
+
+/* Tablet */
+@media (min-width:520px) and (max-width:759px){
+  .products{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+  .card-media{height:250px;}
+}
+
+/* Better touch targets */
+button,.btn,a{touch-action:manipulation;}
+.qty-btn,.add-cart-btn,.variant-btn,.chip,.faq-q{min-height:42px;}
+.card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;}
+@media (hover:hover){
+  .card:hover{transform:translateY(-4px);border-color:rgba(217,107,0,.18);}
+  .chip:not(.active):hover{transform:translateY(-2px);}
+  .variant-btn:hover{border-color:var(--gold);}
+  .add-cart-btn:hover{background:#ffe5b8;}
+}
+
+/* Scroll progress */
+#scrollProgress{
+  position:fixed;top:0;left:0;width:0;height:3px;z-index:100;
+  background:linear-gradient(90deg,#ffb12b,#ef6f00);
+  box-shadow:0 1px 8px rgba(239,111,0,.35);
+}
+
+/* Floating helper buttons */
+.quick-actions{
+  position:fixed;right:14px;bottom:84px;z-index:45;
+  display:flex;flex-direction:column;gap:9px;
+}
+.quick-action{
+  width:44px;height:44px;border:0;border-radius:50%;
+  background:#fff;color:#5b2c09;
+  box-shadow:0 8px 22px rgba(47,27,11,.16);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:.2s ease;
+}
+.quick-action.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+.quick-action:hover{transform:translateY(-2px);}
+
+/* Toast */
+#shopToast{
+  position:fixed;left:50%;bottom:82px;z-index:80;
+  transform:translate(-50%,20px);opacity:0;pointer-events:none;
+  background:#2f1b0b;color:#fff;padding:11px 16px;border-radius:999px;
+  font-size:12px;font-weight:700;box-shadow:0 10px 28px rgba(0,0,0,.2);
+  transition:.25s ease;white-space:nowrap;
+}
+#shopToast.show{opacity:1;transform:translate(-50%,0);}
+
+/* Cart drawer */
+.cart-drawer{
+  position:fixed;inset:0;z-index:90;display:none;
+  background:rgba(31,16,4,.42);backdrop-filter:blur(4px);
+}
+.cart-drawer.open{display:block;}
+.cart-panel{
+  position:absolute;right:0;top:0;height:100%;width:min(430px,92vw);
+  background:#fffaf2;box-shadow:-15px 0 45px rgba(0,0,0,.18);
+  padding:22px;display:flex;flex-direction:column;
+  animation:drawerIn .25s ease;
+}
+@keyframes drawerIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.cart-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px;}
+.cart-head h3{font-size:25px;}
+.cart-close{border:0;background:#fff0d7;width:40px;height:40px;border-radius:50%;font-size:22px;cursor:pointer;}
+.cart-list{flex:1;overflow:auto;padding:16px 0;}
+.cart-item{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:10px;
+}
+.cart-item-top{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:13px;}
+.cart-item-meta{font-size:11px;color:var(--muted);margin-top:5px;}
+.cart-item-controls{display:flex;align-items:center;justify-content:space-between;margin-top:10px;}
+.cart-mini-btn{border:1px solid var(--line-strong);background:#fff7e9;border-radius:8px;width:32px;height:32px;cursor:pointer;font-weight:700;}
+.cart-empty{text-align:center;color:var(--muted);padding:50px 20px;font-size:13px;}
+.cart-foot{border-top:1px solid var(--line);padding-top:16px;}
+.cart-total{display:flex;justify-content:space-between;font-weight:700;margin-bottom:12px;}
+.cart-total strong{font-size:21px;color:#d96300;}
+.cart-checkout{
+  width:100%;border:0;border-radius:13px;background:#25d366;color:#fff;
+  padding:14px;font-weight:800;font-size:14px;cursor:pointer;
+}
+
+/* Product quick-view modal */
+.product-modal{
+  position:fixed;inset:0;z-index:85;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(31,16,4,.52);backdrop-filter:blur(5px);
+}
+.product-modal.open{display:flex;}
+.product-modal-box{
+  width:min(720px,100%);max-height:90vh;overflow:auto;background:#fffaf2;
+  border-radius:24px;box-shadow:0 25px 70px rgba(0,0,0,.24);
+  padding:20px;position:relative;animation:modalIn .22s ease;
+}
+@keyframes modalIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.modal-close{
+  position:absolute;right:16px;top:16px;width:40px;height:40px;border:0;border-radius:50%;
+  background:rgba(255,255,255,.9);font-size:22px;cursor:pointer;z-index:2;
+}
+.modal-image{width:100%;height:280px;object-fit:contain;border-radius:18px;background:#fff0d2;padding:12px;}
+.modal-info{padding:18px 4px 4px;}
+.modal-info h3{font-size:28px;margin-bottom:8px;}
+.modal-info p{color:var(--muted);font-size:14px;line-height:1.7;}
+.modal-price{font-family:'Fraunces',serif;color:#d96300;font-size:26px;font-weight:700;margin:12px 0;}
+.modal-add{width:100%;border:0;border-radius:13px;padding:14px;background:linear-gradient(135deg,#ffb12b,#f07a00);color:#fff;font-weight:800;cursor:pointer;}
+
+@media(max-width:520px){
+  .quick-actions{right:10px;bottom:76px;}
+  .quick-action{width:40px;height:40px;}
+  #shopToast{bottom:72px;max-width:90vw;overflow:hidden;text-overflow:ellipsis;}
+  .cart-panel{width:100%;}
+  .product-modal-box{border-radius:20px;padding:14px;}
+  .modal-image{height:220px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important;}
+}
+</style>
+
+</head>
+<body>
+<div class="app">
+<div id="scrollProgress"></div>
+
+<div class="quick-actions" aria-label="Aksi cepat">
+  <button class="quick-action" id="topBtn" title="Kembali ke atas" aria-label="Kembali ke atas">↑</button>
+  <button class="quick-action" id="cartOpenBtn" title="Buka keranjang" aria-label="Buka keranjang">🛒</button>
+</div>
+
+<div id="shopToast" role="status" aria-live="polite"></div>
+
+<div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-panel" role="dialog" aria-modal="true" aria-label="Keranjang belanja">
+    <div class="cart-head">
+      <h3>Keranjang Anda</h3>
+      <button class="cart-close" id="cartCloseBtn" aria-label="Tutup keranjang">×</button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><strong id="drawerTotal">Rp 0</strong></div>
+      <button class="cart-checkout" id="drawerCheckout">Pesan Semua via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<div class="product-modal" id="productModal" aria-hidden="true">
+  <div class="product-modal-box" role="dialog" aria-modal="true" aria-label="Detail produk">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Tutup detail">×</button>
+    <img class="modal-image" id="modalImage" src="" alt="">
+    <div class="modal-info">
+      <div class="card-eyebrow" id="modalEyebrow"></div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <div class="modal-price" id="modalPrice"></div>
+      <button class="modal-add" id="modalAddBtn">+ Tambahkan ke Keranjang</button>
+    </div>
+  </div>
+</div>
+
+
+  <div class="brand-strip">
+    <div class="k-badge">S</div>
+    <div>
+      <div class="brand-name">SANGSILE CHIPS</div>
+      <div class="brand-sub">UMKM KERIPIK PEPAYA · TANGGAMUS</div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <img class="hero-bg" src="background.jpeg" alt="Keripik Sangsile Chips">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">✦ Sangsile Chips ✦</div>
+      <h1 class="hero-title">Dari Kebun<br><em>Menjadi</em><br>Keripik Berkualitas</h1>
+      <p class="hero-sub">Keripik pepaya renyah dari petani lokal Talang Jawa, Tanggamus — dipetik segar, diolah higienis, tanpa pengawet.</p>
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:-18px auto 24px;font-size:11px;font-weight:700;color:#8b4a00;">
+        <span style="background:#fff;padding:7px 10px;border-radius:999px;border:1px solid rgba(217,107,0,.12);">✓ Pepaya Lokal</span>
+        <span style="background:#fff;padding:7px 10px;border-radius:999px;border:1px solid rgba(217,107,0,.12);">✓ Tanpa Pengawet</span>
+        <span style="background:#fff;padding:7px 10px;border-radius:999px;border:1px solid rgba(217,107,0,.12);">✓ Bisa Kirim</span>
+      </div>
+      <a href="#katalog" class="btn btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Lihat Produk Kami
+      </a>
+      <div class="scroll-hint">
+        SCROLL
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Varian Rasa</div></div>
+    <div class="stat"><div class="stat-num">3.800+</div><div class="stat-label">Pelanggan Puas</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Pepaya Lokal</div></div>
+    <div class="stat"><div class="stat-num">4.8★</div><div class="stat-label">Rating Toko</div></div>
+  </div>
+
+  <div id="katalog" class="catalog-head">
+    <div class="eyebrow">Koleksi Kami</div>
+    <h2 class="section-title">Katalog Produk</h2>
+    <p class="catalog-desc">Tersedia kemasan 100g (Rp10.000) dan 350g (Rp20.000) dengan garansi kerenyahan. Pilih rasa, ukuran, atur jumlah, lalu pesan langsung lewat WhatsApp.</p>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="chip active" data-filter="all">Semua</button>
+    <button class="chip" data-filter="original">Original</button>
+    <button class="chip" data-filter="balado">Balado</button>
+    <button class="chip" data-filter="coklat">Coklat</button>
+  </div>
+
+  <div class="products" id="products">
+
+    <div class="card" data-category="original">
+      <div class="card-media">
+        <span class="badge">Terlaris</span>
+        <span class="loc-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+          Talang Jawa, Tanggamus
+        </span>
+        <img src="original.jpeg" alt="Keripik Pepaya Original">
+        <div class="card-media-shade"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">Crispy original · gurih alami</div>
+        <h3 class="card-title">Keripik Pepaya Original</h3>
+        <p class="card-desc">Diiris tipis dari pepaya muda pilihan, digoreng dengan minyak berkualitas hingga renyah sempurna. Rasa gurih alami tanpa perisa tambahan.</p>
+        <div class="spec-row">
+          <div class="spec"><div class="spec-label">Varian Rasa</div><div class="spec-val">Original</div></div>
+          <div class="spec"><div class="spec-label">Tekstur</div><div class="spec-val">Renyah Tipis</div></div>
+          <div class="spec"><div class="spec-label">Berat</div><div class="spec-val js-weight">100g</div></div>
+        </div>
+        <div class="rating-row">
+          <div class="stars">★★★★★<b>4.9</b></div>
+          <div class="sold">1.240+ terjual</div>
+        </div>
+        <div class="variant-row" data-variant-group>
+          <button type="button" class="variant-btn active" data-weight="100g" data-price="10000">100g<span>Rp10.000</span></button>
+          <button type="button" class="variant-btn" data-weight="350g" data-price="20000">350g<span>Rp20.000</span></button>
+        </div>
+        <button type="button" class="btn quick-view-btn" style="width:100%;margin-bottom:12px;background:#fff1d7;border:1px solid var(--line-strong);color:var(--cream);padding:11px;" aria-label="Lihat detail produk">👀 Lihat Detail Produk</button>
+        <div class="price-row">
+          <div class="price js-price">Rp 10.000</div>
+          <div class="price-unit js-price-unit">/ pack 100g</div>
+        </div>
+        <div class="qty-row" data-product="Keripik Pepaya Original" data-base="Keripik Pepaya Original" data-price="10000" data-weight="100g">
+          <div class="qty-control">
+            <button class="qty-btn qty-dec" type="button">−</button>
+            <span class="qty-val">0</span>
+            <button class="qty-btn qty-inc" type="button">+</button>
+          </div>
+          <button class="btn add-cart-btn" type="button">+ Keranjang</button>
+        </div>
+        <div class="buy-row">
+          <a href="https://wa.me/6281234567890?text=Halo%20Sangsile%20Chips%2C%20saya%20ingin%20memesan%20Keripik%20Pepaya%20Original%20100g" class="btn buy-btn buy-wa js-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+          <a href="https://www.tiktok.com/@sangsile.chips" class="btn buy-btn buy-tiktok" target="_blank" rel="noopener">TikTok ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="balado">
+      <div class="card-media">
+        <span class="badge">Baru</span>
+        <span class="loc-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+          Talang Jawa, Tanggamus
+        </span>
+        <img src="balado.jpeg" alt="Keripik Pepaya Balado">
+        <div class="card-media-shade"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">Balado pedas · gurih menggigit</div>
+        <h3 class="card-title">Keripik Pepaya Balado</h3>
+        <p class="card-desc">Balutan bumbu balado khas — perpaduan cabai, bawang, dan rempah pilihan yang meresap sempurna di tiap irisan. Pedas gurih yang bikin nagih.</p>
+        <div class="spec-row">
+          <div class="spec"><div class="spec-label">Varian Rasa</div><div class="spec-val">Balado</div></div>
+          <div class="spec"><div class="spec-label">Tekstur</div><div class="spec-val">Renyah Pedas Gurih</div></div>
+          <div class="spec"><div class="spec-label">Berat</div><div class="spec-val js-weight">100g</div></div>
+        </div>
+        <div class="rating-row">
+          <div class="stars">★★★★★<b>4.8</b></div>
+          <div class="sold">890+ terjual</div>
+        </div>
+        <div class="variant-row" data-variant-group>
+          <button type="button" class="variant-btn active" data-weight="100g" data-price="10000">100g<span>Rp10.000</span></button>
+          <button type="button" class="variant-btn" data-weight="350g" data-price="20000">350g<span>Rp20.000</span></button>
+        </div>
+        <button type="button" class="btn quick-view-btn" style="width:100%;margin-bottom:12px;background:#fff1d7;border:1px solid var(--line-strong);color:var(--cream);padding:11px;" aria-label="Lihat detail produk">👀 Lihat Detail Produk</button>
+        <div class="price-row">
+          <div class="price js-price">Rp 10.000</div>
+          <div class="price-unit js-price-unit">/ pack 100g</div>
+        </div>
+        <div class="qty-row" data-product="Keripik Pepaya Balado" data-base="Keripik Pepaya Balado" data-price="10000" data-weight="100g">
+          <div class="qty-control">
+            <button class="qty-btn qty-dec" type="button">−</button>
+            <span class="qty-val">0</span>
+            <button class="qty-btn qty-inc" type="button">+</button>
+          </div>
+          <button class="btn add-cart-btn" type="button">+ Keranjang</button>
+        </div>
+        <div class="buy-row">
+          <a href="https://wa.me/6281234567890?text=Halo%20Sangsile%20Chips%2C%20saya%20ingin%20memesan%20Keripik%20Pepaya%20Balado%20100g" class="btn buy-btn buy-wa js-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+          <a href="https://www.tiktok.com/@sangsile.chips" class="btn buy-btn buy-tiktok" target="_blank" rel="noopener">TikTok ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="coklat">
+      <div class="card-media">
+        <span class="loc-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+          Talang Jawa, Tanggamus
+        </span>
+        <img src="coklat.jpeg" alt="Keripik Pepaya Coklat">
+        <div class="card-media-shade"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">Coklat premium · manis creamy</div>
+        <h3 class="card-title">Keripik Pepaya Coklat</h3>
+        <p class="card-desc">Diselimuti lelehan coklat premium yang manis dan lembut, berpadu sempurna dengan renyahnya keripik pepaya. Favorit anak-anak hingga dewasa.</p>
+        <div class="spec-row">
+          <div class="spec"><div class="spec-label">Varian Rasa</div><div class="spec-val">Coklat</div></div>
+          <div class="spec"><div class="spec-label">Tekstur</div><div class="spec-val">Renyah Berlapis Coklat</div></div>
+          <div class="spec"><div class="spec-label">Berat</div><div class="spec-val js-weight">100g</div></div>
+        </div>
+        <div class="rating-row">
+          <div class="stars">★★★★★<b>4.7</b></div>
+          <div class="sold">672+ terjual</div>
+        </div>
+        <div class="variant-row" data-variant-group>
+          <button type="button" class="variant-btn active" data-weight="100g" data-price="10000">100g<span>Rp10.000</span></button>
+          <button type="button" class="variant-btn" data-weight="350g" data-price="20000">350g<span>Rp20.000</span></button>
+        </div>
+        <button type="button" class="btn quick-view-btn" style="width:100%;margin-bottom:12px;background:#fff1d7;border:1px solid var(--line-strong);color:var(--cream);padding:11px;" aria-label="Lihat detail produk">👀 Lihat Detail Produk</button>
+        <div class="price-row">
+          <div class="price js-price">Rp 10.000</div>
+          <div class="price-unit js-price-unit">/ pack 100g</div>
+        </div>
+        <div class="qty-row" data-product="Keripik Pepaya Coklat" data-base="Keripik Pepaya Coklat" data-price="10000" data-weight="100g">
+          <div class="qty-control">
+            <button class="qty-btn qty-dec" type="button">−</button>
+            <span class="qty-val">0</span>
+            <button class="qty-btn qty-inc" type="button">+</button>
+          </div>
+          <button class="btn add-cart-btn" type="button">+ Keranjang</button>
+        </div>
+        <div class="buy-row">
+          <a href="https://wa.me/6281234567890?text=Halo%20Sangsile%20Chips%2C%20saya%20ingin%20memesan%20Keripik%20Pepaya%20Coklat%20100g" class="btn buy-btn buy-wa js-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+          <a href="https://www.tiktok.com/@sangsile.chips" class="btn buy-btn buy-tiktok" target="_blank" rel="noopener">TikTok ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="store-cta">
+    <div class="eyebrow">Dapatkan Sekarang</div>
+    <h2 class="section-title">Belanja Lebih Mudah di</h2>
+    <p class="store-desc">Kunjungi toko resmi kami atau pesan langsung via WhatsApp dengan pengiriman ke seluruh Indonesia.</p>
+    <div class="store-buttons">
+      <a href="https://wa.me/6281234567890?text=Halo%20Sangsile%20Chips%2C%20saya%20ingin%20bertanya%20tentang%20produk%20keripik%20pepaya." class="btn buy-wa store-btn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        Pesan via WhatsApp
+      </a>
+      <a href="https://www.instagram.com/sangsile.chips?igsh=dmVzMWcya2t1Nnpr&utm_source=qr" class="btn buy-instagram store-btn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        Instagram Kami ↗
+      </a>
+      <a href="https://www.tiktok.com/@sangsile.chips" class="btn buy-tiktok store-btn" target="_blank" rel="noopener">TikTok Shop Official ↗</a>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="eyebrow">Tentang Kami</div>
+    <h2 class="about-title">Pepaya Lokal,<br><em>Cita Rasa Istimewa</em></h2>
+    <p>Sangsile Chips adalah usaha kecil menengah yang lahir dari kecintaan terhadap hasil bumi Tanggamus. Kami bekerja langsung dengan petani pepaya di Talang Jawa untuk menghadirkan keripik dengan bahan baku terbaik.</p>
+    <p>Setiap batch diiris, digoreng, dan dikemas dengan standar kebersihan ketat — segar dari dapur produksi, langsung ke pintu rumah Anda, tanpa perantara.</p>
+    <div class="ig-row">
+      <div class="ig-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </div>
+      <div>
+        <div class="ig-handle">@sangsile.chips</div>
+        <div class="ig-sub">Ikuti kami di Instagram</div>
+      </div>
+    </div>
+    <div class="about-media">
+      <img class="about-media-img" src="background.jpeg" alt="Sangsile Chips">
+      <div class="about-media-shade"></div>
+      <div class="exp-badge">
+        <div class="exp-num">5+</div>
+        <div class="exp-label">Tahun Pengalaman</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="eyebrow">Sering Ditanya</div>
+    <h2 class="section-title" style="text-align:center;margin-bottom:8px;">Pertanyaan Umum</h2>
+    <div class="faq-list" id="faqList" style="margin-top:24px;">
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          Berapa lama daya tahan keripik pepaya?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><p>Keripik pepaya Sangsile Chips tahan hingga 4 bulan dalam kemasan tertutup rapat dan disimpan di tempat kering, jauh dari sinar matahari langsung.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          Apakah bisa pesan campur beberapa rasa?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><p>Bisa. Tambahkan beberapa varian ke keranjang di atas, lalu kirim pesanan Anda langsung ke WhatsApp kami — kami akan bantu proses kombinasinya.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          Apakah melayani pengiriman ke luar Lampung?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><p>Ya, kami melayani pengiriman ke seluruh Indonesia melalui DM Instagram, TikTok Shop, maupun ekspedisi pilihan saat pemesanan via WhatsApp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="contact-title">Hubungi Kami</h2>
+    <a class="contact-box link" href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+      <div class="contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-val">+62 812-3456-7890</div>
+      </div>
+    </a>
+    <div class="contact-box">
+      <div class="contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Lokasi</div>
+        <div class="contact-val">Talang Jawa, Tanggamus, Lampung</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-brand">
+      <div class="k-badge" style="width:32px;height:32px;font-size:14px;">S</div>
+      <div class="brand-name" style="font-size:15px;">Sangsile Chips</div>
+    </div>
+    <div class="foot-copy">© 2026 Sangsile Chips UMKM · Semua Hak Dilindungi</div>
+    <div class="foot-links"><span>Instagram</span>·<span>TikTok Shop</span>·<span>WhatsApp</span></div>
+  </footer>
+
+  <div class="cart-bar" id="cartBar">
+    <div class="cart-info">
+      <span id="cartCount">0 item</span>
+      <b id="cartTotal">Rp 0</b>
+    </div>
+    <a href="#" class="btn cart-wa-btn" id="cartWaBtn" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  // ---- FILTER PRODUK ----
+  var filters = document.querySelectorAll('#filters .chip');
+  var cards = document.querySelectorAll('#products .card');
+  filters.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      filters.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var f = chip.getAttribute('data-filter');
+      cards.forEach(function(card){
+        var match = (f === 'all' || card.getAttribute('data-category') === f);
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+
+  // ---- VARIAN KEMASAN (100g / 350g) ----
+  document.querySelectorAll('[data-variant-group]').forEach(function(group){
+    var card = group.closest('.card');
+    var qtyRow = card.querySelector('.qty-row');
+    var priceEl = card.querySelector('.js-price');
+    var priceUnitEl = card.querySelector('.js-price-unit');
+    var weightEl = card.querySelector('.js-weight');
+    var waLink = card.querySelector('.js-wa-link');
+    var baseName = qtyRow.getAttribute('data-base');
+
+    group.querySelectorAll('.variant-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        group.querySelectorAll('.variant-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var weight = btn.getAttribute('data-weight');
+        var price = btn.getAttribute('data-price');
+
+        qtyRow.setAttribute('data-price', price);
+        qtyRow.setAttribute('data-weight', weight);
+        qtyRow.setAttribute('data-product', baseName + ' ' + weight);
+
+        if (priceEl) priceEl.textContent = 'Rp ' + parseInt(price, 10).toLocaleString('id-ID');
+        if (priceUnitEl) priceUnitEl.textContent = '/ pack ' + weight;
+        if (weightEl) weightEl.textContent = weight;
+        if (waLink){
+          waLink.href = 'https://wa.me/6281234567890?text=Halo%20Sangsile%20Chips%2C%20saya%20ingin%20memesan%20' + encodeURIComponent(baseName + ' ' + weight);
+        }
+      });
+    });
+  });
+
+  // ---- KERANJANG & QTY ----
+  var cart = {}; // key: nama produk -> {qty, price}
+  var waNumber = '6281234567890';
+
+  function formatRupiah(n){
+    return 'Rp ' + n.toLocaleString('id-ID');
+  }
+
+  function updateCartBar(){
+    var bar = document.getElementById('cartBar');
+    var count = 0, total = 0;
+    Object.keys(cart).forEach(function(name){
+      count += cart[name].qty;
+      total += cart[name].qty * cart[name].price;
+    });
+    document.getElementById('cartCount').textContent = count + (count === 1 ? ' item' : ' item');
+    document.getElementById('cartTotal').textContent = formatRupiah(total);
+    bar.classList.toggle('show', count > 0);
+
+    var lines = Object.keys(cart).map(function(name){
+      var item = cart[name];
+      return item.qty + 'x ' + name + ' (' + formatRupiah(item.qty * item.price) + ')';
+    });
+    var msg = 'Halo Sangsile Chips, saya ingin memesan:%0A' + lines.join('%0A') + '%0A%0ATotal%3A ' + formatRupiah(total);
+    document.getElementById('cartWaBtn').href = 'https://wa.me/' + waNumber + '?text=' + msg;
+  }
+
+  document.querySelectorAll('.qty-row').forEach(function(row){
+    var valEl = row.querySelector('.qty-val');
+    var addBtn = row.querySelector('.add-cart-btn');
+    var qty = 0;
+
+    row.querySelector('.qty-inc').addEventListener('click', function(){
+      qty++;
+      valEl.textContent = qty;
+    });
+    row.querySelector('.qty-dec').addEventListener('click', function(){
+      qty = Math.max(0, qty - 1);
+      valEl.textContent = qty;
+    });
+    addBtn.addEventListener('click', function(){
+      if (qty === 0) qty = 1;
+      valEl.textContent = qty;
+      var name = row.getAttribute('data-product');
+      var price = parseInt(row.getAttribute('data-price'), 10);
+      cart[name] = { qty: qty, price: price };
+      addBtn.textContent = 'Ditambahkan ✓';
+      addBtn.classList.add('added');
+      setTimeout(function(){
+        addBtn.textContent = '+ Keranjang';
+        addBtn.classList.remove('added');
+      }, 1200);
+      updateCartBar();
+    });
+  });
+
+  // ---- FAQ ACCORDION ----
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ---- RESPONSIVE INTERACTIONS ----
+  var scrollProgress = document.getElementById('scrollProgress');
+  var topBtn = document.getElementById('topBtn');
+  var cartOpenBtn = document.getElementById('cartOpenBtn');
+  var cartDrawer = document.getElementById('cartDrawer');
+  var cartCloseBtn = document.getElementById('cartCloseBtn');
+  var cartList = document.getElementById('cartList');
+  var drawerTotal = document.getElementById('drawerTotal');
+  var drawerCheckout = document.getElementById('drawerCheckout');
+  var toast = document.getElementById('shopToast');
+  var modal = document.getElementById('productModal');
+  var modalClose = document.getElementById('modalCloseBtn');
+  var modalImage = document.getElementById('modalImage');
+  var modalEyebrow = document.getElementById('modalEyebrow');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalDescription = document.getElementById('modalDescription');
+  var modalPrice = document.getElementById('modalPrice');
+  var modalAddBtn = document.getElementById('modalAddBtn');
+  var activeModalRow = null;
+
+  function showToast(message){
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+  }
+
+  function openCart(){
+    renderCartDrawer();
+    cartDrawer.classList.add('open');
+    cartDrawer.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeCart(){
+    cartDrawer.classList.remove('open');
+    cartDrawer.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  function renderCartDrawer(){
+    var keys = Object.keys(cart);
+    if (!keys.length){
+      cartList.innerHTML = '<div class="cart-empty">Keranjang masih kosong.<br>Yuk pilih camilan favoritmu! 😋</div>';
+      drawerTotal.textContent = 'Rp 0';
+      return;
+    }
+    var total = 0;
+    cartList.innerHTML = keys.map(function(name){
+      var item = cart[name];
+      var subtotal = item.qty * item.price;
+      total += subtotal;
+      return '<div class="cart-item" data-cart-name="' + encodeURIComponent(name) + '">' +
+        '<div class="cart-item-top"><span>' + name + '</span><span>' + formatRupiah(subtotal) + '</span></div>' +
+        '<div class="cart-item-meta">' + item.qty + ' × ' + formatRupiah(item.price) + '</div>' +
+        '<div class="cart-item-controls">' +
+          '<div><button class="cart-mini-btn cart-minus" data-name="' + encodeURIComponent(name) + '">−</button>' +
+          '<span style="display:inline-block;width:38px;text-align:center;font-weight:700;">' + item.qty + '</span>' +
+          '<button class="cart-mini-btn cart-plus" data-name="' + encodeURIComponent(name) + '">+</button></div>' +
+          '<button class="cart-mini-btn cart-remove" data-name="' + encodeURIComponent(name) + '" title="Hapus">×</button>' +
+        '</div></div>';
+    }).join('');
+    drawerTotal.textContent = formatRupiah(total);
+
+    cartList.querySelectorAll('.cart-plus').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var name=decodeURIComponent(btn.dataset.name);
+        cart[name].qty++;
+        updateCartBar(); renderCartDrawer();
+      });
+    });
+    cartList.querySelectorAll('.cart-minus').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var name=decodeURIComponent(btn.dataset.name);
+        cart[name].qty--;
+        if(cart[name].qty<=0) delete cart[name];
+        updateCartBar(); renderCartDrawer();
+      });
+    });
+    cartList.querySelectorAll('.cart-remove').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var name=decodeURIComponent(btn.dataset.name);
+        delete cart[name];
+        updateCartBar(); renderCartDrawer();
+        showToast('Produk dihapus dari keranjang');
+      });
+    });
+  }
+
+  function checkoutWhatsApp(){
+    if(!Object.keys(cart).length){ showToast('Keranjang masih kosong'); return; }
+    var lines = Object.keys(cart).map(function(name){
+      var item=cart[name];
+      return item.qty+'x '+name+' ('+formatRupiah(item.qty*item.price)+')';
+    });
+    var total=Object.keys(cart).reduce(function(sum,name){
+      return sum + cart[name].qty*cart[name].price;
+    },0);
+    var msg='Halo Sangsile Chips, saya ingin memesan:%0A'+lines.join('%0A')+'%0A%0ATotal%3A '+formatRupiah(total);
+    window.open('https://wa.me/'+waNumber+'?text='+msg,'_blank','noopener');
+  }
+
+  window.addEventListener('scroll',function(){
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=max>0 ? (window.scrollY/max)*100 : 0;
+    scrollProgress.style.width=pct+'%';
+    document.querySelector('.brand-strip').classList.toggle('scrolled',window.scrollY>10);
+    topBtn.classList.toggle('visible',window.scrollY>420);
+    cartOpenBtn.classList.toggle('visible',Object.keys(cart).length>0);
+  },{passive:true});
+
+  topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  cartOpenBtn.addEventListener('click',openCart);
+  cartCloseBtn.addEventListener('click',closeCart);
+  cartDrawer.addEventListener('click',function(e){if(e.target===cartDrawer) closeCart();});
+  drawerCheckout.addEventListener('click',checkoutWhatsApp);
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      closeCart();
+      closeModal();
+    }
+  });
+
+  function openModal(card){
+    var img=card.querySelector('.card-media img');
+    activeModalRow=card.querySelector('.qty-row');
+    modalImage.src=img.src;
+    modalImage.alt=img.alt;
+    modalEyebrow.textContent=card.querySelector('.card-eyebrow').textContent;
+    modalTitle.textContent=card.querySelector('.card-title').textContent;
+    modalDescription.textContent=card.querySelector('.card-desc').textContent;
+    modalPrice.textContent=card.querySelector('.js-price').textContent;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    if(!cartDrawer.classList.contains('open')) document.body.style.overflow='';
+  }
+  document.querySelectorAll('.quick-view-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){openModal(btn.closest('.card'));});
+  });
+  modalClose.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  modalAddBtn.addEventListener('click',function(){
+    if(!activeModalRow)return;
+    var name=activeModalRow.getAttribute('data-product');
+    var price=parseInt(activeModalRow.getAttribute('data-price'),10);
+    cart[name]=cart[name]||{qty:0,price:price};
+    cart[name].qty++;
+    cart[name].price=price;
+    updateCartBar();
+    closeModal();
+    showToast('✓ Ditambahkan ke keranjang');
+    openCart();
+  });
+
+  // Improve "add to cart": accumulate quantities instead of replacing them.
+  document.querySelectorAll('.qty-row').forEach(function(row){
+    var addBtn=row.querySelector('.add-cart-btn');
+    var originalAdd=addBtn.onclick;
+    addBtn.addEventListener('click',function(){
+      var name=row.getAttribute('data-product');
+      var price=parseInt(row.getAttribute('data-price'),10);
+      var qty=parseInt(row.querySelector('.qty-val').textContent,10)||1;
+      cart[name]=cart[name]||{qty:0,price:price};
+      cart[name].qty += qty;
+      cart[name].price=price;
+      updateCartBar();
+      showToast('✓ '+qty+' item ditambahkan');
+    });
+  });
+
+  // Initial state
+  window.dispatchEvent(new Event('scroll'));
+
+})();
+</script>
+</body>
+</html>
